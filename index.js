@@ -29,10 +29,31 @@ ReactDOM.render(reactElementButton, domElement);
 
 ReactDOM.render(
   <div>
-    <Button text="Add"> + Add</Button>{" "}
+    <Button text="Add"> + Add</Button>
     {/* Rendering by position  with children props*/}
     <Button text="Subtract" />
     {/* <Button /> */}
   </div>,
   domElement
 );
+
+// Children is a prop, one can pass it by position:
+
+<Button text="Add"> + Add</Button>;
+{
+  /* Rendering by position  with children props*/
+}
+
+//Or passing it like prop by value
+//1)
+<Button children={element}/> 
+//2) By value under the hood
+React.createElement(Button, {children: element})
+
+
+//Passing props by position
+<Button > {element} </Button>
+//2) By position under the hood
+React.createElement(Button, {}, element)
+//3
+React.createElement(Button, {children: element})
