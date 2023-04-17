@@ -1,3 +1,4 @@
+// @ts-nocheck
 //React is a blueprint, knows how to describe an user interface but doesn't know how to render it
 import React from "react";
 
@@ -18,7 +19,7 @@ const reactElementS = React.createElement(
 
 const reactElementButton = <button>{text}</button>; // return of a react Element
 
-const Button = () => <button>{text}</button>; // return of a react Component by turning it into a function
+const Button = ({ children }) => <button>{children}</button>; // return of a react Component by turning it into a function
 
 //ReactDOM will render both consts
 
@@ -28,9 +29,10 @@ ReactDOM.render(reactElementButton, domElement);
 
 ReactDOM.render(
   <div>
-    <Button />
-    <Button />
-    <Button />
+    <Button text="Add"> + Add</Button>{" "}
+    {/* Rendering by position  with children props*/}
+    <Button text="Subtract" />
+    {/* <Button /> */}
   </div>,
   domElement
 );
